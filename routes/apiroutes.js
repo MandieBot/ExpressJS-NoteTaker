@@ -6,7 +6,6 @@ const fs = require("fs");
 //after it's read you need to return it to the user
 
 router.get("/notes", (req, res) => {
-    
   fs.readFile("./db/db.json", (err, data) => {
     if (err) {
       console.error(err);
@@ -31,10 +30,10 @@ router.post("/notes", (req, res) => {
   });
   fs.writeFile("./db/db.json", JSON.stringify(jsonData), (err) => {
     if (err) console.log(err);
-    // else {
-    //   console.log("File written successfully\n");
-    //   console.log("The written has the following contents:");
-    // }
+    else {
+      console.log("File written successfully\n");
+      console.log("The written has the following contents:");
+    }
   });
 });
 module.exports = router;
