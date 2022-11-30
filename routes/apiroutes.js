@@ -27,7 +27,7 @@ router.post("/notes", (req, res) => {
     }
     const jsonData = JSON.parse(data);
     const newNote = req.body;
-    newNote.id = uuid4();
+    newNote.id = uuidv4();
     jsonData.push(req.body);
     console.log(jsonData);
     fs.writeFile("./db/db.json", JSON.stringify(jsonData), (err) => {
