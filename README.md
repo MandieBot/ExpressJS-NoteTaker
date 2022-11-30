@@ -33,6 +33,6 @@ Enter command npm test to run tests and debug.
 
 [MandieBot](https://github.com/MandieBot)
 
-[Link to Deployed Application] (https://secure-wildwood-33792.herokuapp.com/)
+[Link to Deployed Application](https://secure-wildwood-33792.herokuapp.com/)
 
 For additional information, please reach out to amandabotinelly@gmail.com.
