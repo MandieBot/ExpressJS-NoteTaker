@@ -1,6 +1,7 @@
 const path = require("path");
 const router = require("express").Router();
 const fs = require("fs");
+const { v4: uuidv4 } = require("uuid");
 
 // read from the file here and then save it to a variable
 //after it's read you need to return it to the user
@@ -25,13 +26,14 @@ router.post("/notes", (req, res) => {
       return;
     }
     const jsonData = JSON.parse(data);
+    const newNote = req.body;
+    newNote.id = uuid4();
     jsonData.push(req.body);
     console.log(jsonData);
     fs.writeFile("./db/db.json", JSON.stringify(jsonData), (err) => {
       if (err) console.log(err);
       else {
-        console.log("File written successfully\n");
-        console.log("The written has the following contents:");
+        console.log("Note written successfully!");
       }
     });
   });
