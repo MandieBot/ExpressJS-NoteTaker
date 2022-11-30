@@ -27,13 +27,13 @@ router.post("/notes", (req, res) => {
     const jsonData = JSON.parse(data);
     jsonData.push(req.body);
     console.log(jsonData);
-  });
-  fs.writeFile("./db/db.json", JSON.stringify(jsonData), (err) => {
-    if (err) console.log(err);
-    else {
-      console.log("File written successfully\n");
-      console.log("The written has the following contents:");
-    }
+    fs.writeFile("./db/db.json", JSON.stringify(jsonData), (err) => {
+      if (err) console.log(err);
+      else {
+        console.log("File written successfully\n");
+        console.log("The written has the following contents:");
+      }
+    });
   });
 });
 module.exports = router;
