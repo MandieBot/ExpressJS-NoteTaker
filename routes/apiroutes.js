@@ -13,7 +13,7 @@ router.get("/notes", (req, res) => {
       return;
     }
     const jsonData = JSON.parse(data);
-    console.log(jsonData);
+    // console.log(jsonData);
     res.json(jsonData);
   });
 });
@@ -29,13 +29,34 @@ router.post("/notes", (req, res) => {
     const newNote = req.body;
     newNote.id = uuidv4();
     jsonData.push(req.body);
-    console.log(jsonData);
+    // console.log(jsonData);
     fs.writeFile("./db/db.json", JSON.stringify(jsonData), (err) => {
       if (err) console.log(err);
       else {
         console.log("Note written successfully!");
+        res.json("New note added!");
       }
     });
   });
+});
+
+router.delete("/notes/:id", (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  fs.readFile("./db/db.json", (err, data) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    const jsonData = JSON.parse(data).filter((obj) => obj.id !== id);
+
+    fs.writeFile("./db/db.json", JSON.stringify(jsonData), (err) => {
+      if (err) console.log(err);
+      else {
+        console.log("Note deleted successfully!");
+      }
+    });
+  });
+  res.send("test note deleted");
 });
 module.exports = router;
