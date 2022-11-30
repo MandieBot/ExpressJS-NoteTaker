@@ -35,4 +35,7 @@ Enter command npm test to run tests and debug.
 
 [Link to Deployed Application](https://secure-wildwood-33792.herokuapp.com/)
 
+![Screenshot of Deployed Application]<img width="1422" alt="Screenshot 2022-11-30 at 3 36 21 PM" src="https://user-images.githubusercontent.com/115324641/204923277-8839ba44-c5a2-478b-88e8-bdce7ac9159a.png">
+
+
 For additional information, please reach out to amandabotinelly@gmail.com.
